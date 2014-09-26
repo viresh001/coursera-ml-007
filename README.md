@@ -6,8 +6,8 @@ cost functions
 J = (sum(((X * theta) - y).^2))/(2*m); OR
 J = (((X*theta) - y)'*((X*theta) - y))/(2*m);
 
-gradient descent
+gradient descent (choose aplpha, many iterations)
 theta()=theta()-((alpha/m)*X'*(X*theta()-y));
 
-normal equation (<10000 features)
+normal equation (<10000 features, compute expensive (O(n^3)))
 theta=pinv(X’*X)*(X’*y);
