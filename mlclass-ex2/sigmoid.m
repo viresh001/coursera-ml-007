@@ -6,7 +6,7 @@ function g = sigmoid(z)
 ne = numel(z);
 g = zeros(ne,1);
 for i = 1:ne
-	g(i) = 1/(1 + exp(-z(i)));
+  g(i) = 1/(1 + exp(-z(i)));
 end
 
 
