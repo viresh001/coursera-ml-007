@@ -18,6 +18,9 @@ logistic regression
 
 hθ(x) = 1/(1+e(-θ'x)); 
 
+decision boundary
+θ'x == 0
+
 cost function
 J(θ) = -1/m*sum(y*log(hθ(x)) + (1-y)log(1-hθ(x)))
 
