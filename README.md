@@ -1,5 +1,9 @@
 coursera-ml-007
 
+matrix multiplication
+
+A[m,n]*B[n,o] = C[m,o] - multiply each m (row) in A with each o (column) in B
+
 MULTI-VARIABLE LINEAR REGRESSION
 
 hθ(x) = θ'x;
