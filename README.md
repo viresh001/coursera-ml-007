@@ -1,4 +1,4 @@
-coursera-ml-007
+coursera-ml-007 summary
 
 matrix multiplication
 
