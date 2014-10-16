@@ -41,3 +41,20 @@ theta()=theta()-((alpha/m)*X'*(hθ(x)-y));
 code
 
 grad = (1/m)*(X'*(ht-y));
+
+REGULARIZED LOGISTIC REGRESSION
+
+code
+
+theta_reg = [0;theta(2:size(theta))];
+
+ht = sigmoid(X*theta);
+
+cost function
+
+J = ((1/m)*((-y'*log(ht)) - (1-y')*log(1-ht))) + (lambda/(2*m))*(theta_reg'*theta_reg);
+
+gradient descent
+
+grad = ((1/m)*(X'*(ht-y))) + ((lambda/m)*theta_reg);
+
