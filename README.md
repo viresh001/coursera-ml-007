@@ -3,6 +3,7 @@ coursera-ml-007 summary
 matrix & vector multiplication
 
 A[m,n]*B[n,o] = C[m,o] - multiply each m (row) in A with each o (column) in B
+for vectors, o = 1
 
 MULTI-VARIABLE LINEAR REGRESSION
 
