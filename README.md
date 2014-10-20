@@ -8,7 +8,7 @@ MULTI-VARIABLE LINEAR REGRESSION
 
 hθ(x) = θ'x;
 
-X = features & θ = paramaters
+x = features & θ = paramaters
 
 cost functions
 
