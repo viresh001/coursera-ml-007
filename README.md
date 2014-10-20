@@ -8,6 +8,8 @@ MULTI-VARIABLE LINEAR REGRESSION
 
 hθ(x) = θ'x;
 
+X = features & θ = paramaters
+
 cost functions
 
 J = (sum(((X * theta) - y).^2))/(2*m); OR
