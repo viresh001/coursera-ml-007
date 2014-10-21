@@ -72,7 +72,7 @@ NEURAL NETWORKS - REPRESENTATION
 
 feedforward propagation
 
-For any layer n (where n > 1):
+for any layer n (where n > 1):
 
 z(n) = θ(n-1)'*a(n-1);
 
