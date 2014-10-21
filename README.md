@@ -70,6 +70,11 @@ grad = ((1/m)*(X'*(ht-y))) + ((lambda/m)*theta_reg);
 
 NEURAL NETWORKS - REPRESENTATION
 
+a(n) = "activation" in layer n
+θ(n) = matrix of weights (parameters) controlling function mapping from layer n to layer (n+1)
+
+if a network has s(n) units in layer j and s(n+1) units in layer n+1, then θ(n) will be of dimension (s(n+1)) X (s(n) + 1)
+
 feedforward propagation
 
 n = 0: Input Layer
