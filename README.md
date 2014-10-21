@@ -78,6 +78,6 @@ z(n) = θ(n-1)'*a(n-1);
 
 a(n) = g(z(n)); 
 
-add column of 1s for each n ... number of layers-1
+add column of 1s for each n to (number of layers-1)
 
 a(n) = [ones(m, 1) a(n)];
