@@ -1,4 +1,4 @@
-coursera-ml-007 summary
+coursera-ml-007 notes
 
 matrix & vector multiplication
 
