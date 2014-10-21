@@ -4,6 +4,10 @@ matrix & vector multiplication
 
 A[m,n]*B[n,o] = C[m,o] - multiply each m (row) in A with each o (column) in B (for vectors, o = 1)
 
+get array row maximuns/minimuns: [max/min, max/min_index] = max/min(A,[],2);
+
+get array column maximuns/minimuns: [max/min, max/min_index] = max/min(A,[],1);
+
 MULTI-VARIABLE LINEAR REGRESSION
 
 hθ(x) = θ'x;
