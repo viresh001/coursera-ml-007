@@ -68,3 +68,16 @@ gradient descent
 
 grad = ((1/m)*(X'*(ht-y))) + ((lambda/m)*theta_reg);
 
+NEURAL NETWORKS - REPRESENTATION
+
+feedforward propagation
+
+For any layer n (where n > 1):
+
+z(n) = θ(n-1)'*a(n-1);
+
+a(n) = g(z(n)); 
+
+add column of 1s for each n ... number of layers-1
+
+a(n) = [ones(m, 1) a(n)];
