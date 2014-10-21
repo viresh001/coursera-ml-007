@@ -72,12 +72,19 @@ NEURAL NETWORKS - REPRESENTATION
 
 feedforward propagation
 
-For any layer n (where n > 1):
+for any layer n (where n > 1):
+
+n = 0: Imput Layer
+n = last layer:  Output Layer
 
 z(n) = θ(n-1)'*a(n-1);
 
 a(n) = g(z(n)); 
 
-add column of 1s for each n ... number of layers-1
+<<<<<<< HEAD
+add column of 1s for each n to last layer -1
+=======
+add column of 1s for each n to (number of layers-1)
+>>>>>>> FETCH_HEAD
 
 a(n) = [ones(m, 1) a(n)];
