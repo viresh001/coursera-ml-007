@@ -72,7 +72,7 @@ NEURAL NETWORKS - REPRESENTATION
 
 feedforward propagation
 
-n = 0: Imput Layer
+n = 0: Input Layer
 
 n = last layer:  Output Layer
 
