@@ -34,9 +34,13 @@ z3 = a2*Theta2';
 hx = sigmoid(z3);
 
 % since data in rows...
-[max, max_index] = max(hx,[],2);
+[max, p] = max(hx,[],2);
 
-p = max_index;
+%p = max_index;
+
+%all in one line
+%[max, p] = max(sigmoid(([ones(m,1) sigmoid((([ones(m, 1) X])*Theta1'))])*Theta2'),[],2);
+
 
 % =========================================================================
 
