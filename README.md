@@ -37,7 +37,7 @@ decision boundary
 
 cost function
 
-J(θ) = -1/m*sum(y*log(hθ(x)) + (1-y)log(1-hθ(x)))
+J(θ) = (-1/m)*sum(y*log(hθ(x)) + (1-y)log(1-hθ(x)))
 
 code
 
