@@ -80,3 +80,23 @@ mlclass-ex3/submitWeb.m
 notes/ml-007-neural networks-representation
 
 mlclass-ex3/octave-workspace
+
+mlclass-ex4/ex4data1.mat
+
+mlclass-ex4/ex4weights.mat
+
+mlclass-ex4/checkNNGradients.m
+
+mlclass-ex4/computeNumericalGradient.m
+
+mlclass-ex4/debugInitializeWeights.m
+
+mlclass-ex4/displayData.m
+
+mlclass-ex4/ex4.m
+
+mlclass-ex4/fmincg.m
+
+mlclass-ex4/submit.m
+
+mlclass-ex4/submitWeb.m
