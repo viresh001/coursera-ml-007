@@ -94,7 +94,13 @@ theta3_reg = ...
 
 J = J + theta1_reg + theta2_reg + ...
 
-%back propagation ("error" per layer)
+random initialization of parameters for symmetry breaking
+ESPILON_INIT = sqrt(6)/sqrt(L_in+L_out);
+W = rand(L_out, 1+L_in)*2*ESPILON_INIT-ESPILON_INIT;
+L_in = incoming layer connections
+L_out = outgoing connections
+
+back propagation ("error" per layer)
 delta_OutputLayer = hx - y_logical;
 
 delta at all hidden layers (l=2,... OutputLayer-1) (IGNORE BIAS UNIT)
@@ -102,7 +108,9 @@ delta(l) = delta(l+1)*Theta(l);
 delta(l) = delta(l)(:,2:end).*sigmoidGradient(z(l));
 theta_gradient(l) = theta_gradient(l) + ((1/m)*(delta(l+1)'*a(l)));
 
-%add regularization to back propagation (IGNORE BIAS UNIT)
+add regularization to back propagation (IGNORE BIAS UNIT)
 theta_reg(l) = theta_gradient(l);
 theta_reg(l)(:,1) = 0;
 theta_gradient(l) = theta_gradient(l) + ((lambda/m)*theta_reg(l));
+
+use theta_gradient[] as input to methods like fmincg to learn a good set of parameters
