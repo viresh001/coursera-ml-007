@@ -79,10 +79,7 @@ hx = sigmoid(z3);
 %recode y to logical vector
 y_logical = zeros(m, num_labels);
 for i = 1:m
-	digit_set = 1:num_labels;
-    %find the 1s
 	y_logical(i, y(i,1)) = 1;
-
 end
 
 % sum across examples(m rows) and classes(K)
