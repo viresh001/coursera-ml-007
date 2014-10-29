@@ -104,9 +104,7 @@ y contains 0 & 1 data
 A_logical = zeros(m, num_labels);
 
 for i = 1:m
-
 	y_logical(i, y(i,1)) = 1;
-
 end
 
 neural networks cost function
