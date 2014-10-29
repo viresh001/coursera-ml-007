@@ -66,7 +66,7 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-%feedforward part
+%feedforward propagation
 %add column of 1s
 a1 = [ones(m, 1) X];
 z2 = a1*Theta1';
