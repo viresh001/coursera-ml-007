@@ -77,7 +77,7 @@ a(n) = [ones(m, 1) a(n)];
 
 recode y to logical vector:
 y contains 0 & 1 data
-A_logical = zeros(m, num_labels);
+y_logical = zeros(m, num_labels);
 for i = 1:m
   y_logical(i, y(i,1)) = 1;
 end
