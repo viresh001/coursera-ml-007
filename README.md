@@ -79,11 +79,7 @@ recode y to logical vector:
 y contains 0 & 1 data
 A_logical = zeros(m, num_labels);
 for i = 1:m
-<<<<<<< HEAD
   y_logical(i, y(i,1)) = 1;
-=======
-	y_logical(i, y(i,1)) = 1;
->>>>>>> FETCH_HEAD
 end
 
 neural networks cost function
