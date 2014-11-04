@@ -41,8 +41,8 @@ error_val = zeros(length(lambda_vec), 1);
 
 for i = 1:length(lambda_vec)
 
-	lambda = lambda_vec(i);
-	theta = trainLinearReg(X, y, lambda);
+    lambda = lambda_vec(i);
+    theta = trainLinearReg(X, y, lambda);
 
     %set lamba = 0 when computing training and cross validation errors
     error_train(i) = linearRegCostFunction(X, y, theta, 0);
