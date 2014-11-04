@@ -22,6 +22,7 @@ grad = zeros(size(theta));
 %don't regularize theta(1)
 theta_reg = [0;theta(2:size(theta))];
 
+%linear regression
 ht = (X*theta);
 
 J = ((ht-y)'*(ht-y))/(2*m) + (lambda/(2*m))*(theta_reg'*theta_reg);
