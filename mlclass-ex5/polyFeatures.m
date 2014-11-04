@@ -16,8 +16,8 @@ X_poly = zeros(numel(X), p);
 % 
 
 for i = 1:p
-	%take the first column val (X:,1) and raise the ith power for subsequent i colums till p
-	X_poly(:,i) = X(:,1).^i;
+    %take the first column val (X:,1) and raise the ith power for subsequent i colums till p
+    X_poly(:,i) = X(:,1).^i;
 end
 
 % =========================================================================
