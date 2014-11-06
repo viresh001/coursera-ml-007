@@ -114,3 +114,67 @@ theta_reg(l)(:,1) = 0;
 theta_gradient(l) = theta_gradient(l) + ((lambda/m)*theta_reg(l));
 
 use theta_gradient[] as input to methods like fmincg to learn a good set of parameters
+
+ADVICE FOR APPLYING MACHINE LEARNING
+
+Model Section and Train/Validation/Test Sets
+- Split data into 3 sets (RANDOM training set (M(train) 60%, RANDOM cross validtion set (M(cv) 20%, RANDOM test set (M(test)) 20%)
+- Calculate Jtrain(θ), Jcv(θ), Jtest(θ)
+- Pick model with lowest Jcv(θ)
+
+Choosing regularization (lamba)
+- try a set of lamba values
+- Learn θ from training set and minimize J(θ)
+- Compute test set Jcv(θ), pick lamba with smallest Jcv(θ)
+- small lamba -> high variance (overfitting) in Jcv(θ)
+- large lamba -> high bias (underfitting) in Jcv(θ)
+
+Diagnosing Bias vs Variance
+- High bias (underfit) problem:  Jcv(θ) AND Jtrain(θ) both HIGH
+- High variance (overfit) problem Jcv(θ) is HIGH and Jtran(θ) is LOW
+
+Learning Curves
+- Plot Jtrain(θ) and Jcv(θ) vs traing set size (m)
+- as m goes from small->large, Jtrain(θ) goes from small->large
+- as m goes from small->large, Jcv(θ) goes from large->smaller
+
+- High Bias (Underfitting)
+  - as m goes from small->large, Jcv(θ) goes from large->smaller but flattens out quickly (best possible fit)
+  - as m goes from small->large, Jtrain(θ) goes from small->large quickly, ~= Jcv(θ)
+  - high value of Jtrain(θ)~=Jcv(θ)
+  - getting more training data, DOES NOT help
+  - try getting additional features 
+  - try adding polynomila features 
+  - try decreasing lamba 
+
+ - High Variance (Overfitting)
+  - as m goes from small->large, Jtrain(θ) goes from small->increasess (slowly) 
+  - as m goes from small->large, Jcv(θ) goes from large->small
+  - Jcv(θ) - Jtrain(θ) =  significant
+  - getting more training data, DOES help (converges Jvc & Jtrain)
+  - try smaller set of features
+  - try increasing lamba
+
+- For neutal networks try with > 1 hidden layers and check for lowest Jcv(θ)
+
+MACHINE LEARNING SYSTEM DESIGN
+
+Recommended Approach
+- Start with a simple algorithm that you can implement quick and test on cross-validation data
+- Plot learning curves to identify bias (underfitting)/variance (overfitting)
+- Error Analysis - manually examine the examples in cross validation set for errors
+- Error Metrics - single real number evaluate/validate algorithms  - compare cross validation errors
+- Error Metrics for Skewed Classes:
+  - Accuracy = (true positives + true negatives) / (total examples)
+  - Precision (true positives/(true positives + false positives))
+  - Recall (true positvies/(true positives + fale negatives))
+  - Use high precision and high recall
+  - precision/recall comparison:
+    - Calculate F(1)-Score: 2*((P*R)/(P+R)) on cross validation set and pick MAX value
+
+Large data rationale (when is getting larger data sets better?)
+- Given the input x, can a human expert confidently predict y?
+- Use logistic/linear regression with many features; neural network with many hidden units
+  - produces low bias algoritms (Jtrain will be small)
+  - very large training set (unlikely to overfit) - produces low variance
+  - Jtrain(θ)~=Jtest(θ)
