@@ -23,7 +23,7 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
-range = [0.01 0.03];% 0.1 0.3 1 3 10 30];
+range = [0.01 0.03 0.1 0.3 1 3 10 30];
 
 min_error = inf;
 C_final = C;
