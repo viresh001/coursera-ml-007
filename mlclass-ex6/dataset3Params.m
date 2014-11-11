@@ -23,14 +23,18 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
-range = [0.01 0.03 0.1 0.3 1 3 10 30];
+range = [0.01 0.03];% 0.1 0.3 1 3 10 30];
 
 min_error = inf;
+C_final = C;
+sigma_final = sigma;
 
 % iterate each value of range 
 for C = range
 	for sigma = range
-		model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma))
+		%short hand for the gaussianKernel function @(x1, x2) get fed to gaussianKernel in scmTrain
+	    gaussianKernelFunction = @(x1, x2) gaussianKernel(x1, x2, sigma);
+		model= svmTrain(X, y, C, gaussianKernelFunction);
 	    predict =  svmPredict(model, Xval, yval);
 	    cur_error =  mean(double(predict~=yval));
 	    if(cur_error< min_error)
