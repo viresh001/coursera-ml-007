@@ -171,6 +171,8 @@ Recommended Approach
   - Use high precision and high recall
   - precision/recall comparison:
     - Calculate F(1)-Score: 2*((P*R)/(P+R)) on cross validation set and pick MAX value
+    - Recall is the percentage of true positives in relation to both true positives and false negatives. In other words, the       percentage of items containing malicious content that where marked as containing malicious content. 
+    - Precision is the percentage of true positives in relation to both true positives and false positives. In other words,        the percentage of log events that were marked as containing malicious content that actually contained malicious              content.
 
 Large data rationale (when is getting larger data sets better?)
 - Given the input x, can a human expert confidently predict y?
