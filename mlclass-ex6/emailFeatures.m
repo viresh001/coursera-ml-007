@@ -47,7 +47,7 @@ x = zeros(n, 1);
 %              x = [ 0 0 0 0 1 0 0 0 ... 0 0 0 0 1 ... 0 0 0 1 0 ..];
 %
 %
-m = size(word_indices;
+m = size(word_indices);
 
 %ensure no overruns
 if(m <= n)
