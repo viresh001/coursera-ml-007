@@ -9,6 +9,10 @@ get array column maximuns/minimuns: [max/min, max/min_index] = max/min(A,[],1);
 
 unroll arrays:  Array3 = [Array1(:) ; Array2(:)]; and use reshape to rebuilt
 
+ALGORITHMS
+Supervised learning algorithms needs labeled examples (x,y)
+unsupervised learning algorithms need only the input (x). 
+
 MULTI-VARIABLE LINEAR REGRESSION
 
 hθ(x) = θ'x;
