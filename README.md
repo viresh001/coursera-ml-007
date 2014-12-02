@@ -185,8 +185,58 @@ Large data rationale (when is getting larger data sets better?)
   - very large training set (unlikely to overfit) - produces low variance
   - Jtrain(θ)~=Jtest(θ)
 
+ANOMALY DETECTION vs SUPERVISED LEARNING
+anomaly detection
+- very small number of positive examples (0-20)
+- large number of negative examples
+- many different "types"of anomalies, future anomalies may not look like present
+supervised learning
+- large number of positive and negative examples
+- enough positive examples to predict future positive examples
+
+ANOMALY DETECTION
+- Used in fraud detection, manufacturing, monitoring computers in a data center
+- Dataset = {x(1),x(2),...x(n)}
+- Is new data point (xtest) anomalous?
+- p(xtest) < ε -> flag anomaly (y=1)
+- p(xtest) > ε -> ok (y=0)
+
+Algorithim - Density Estimation
+- assume you have labeled data of anomalous and non-anomalous examples
+- training set x(1), x(2), x(3), x(n) (60%)
+- cross validation set (20%) & test set (20%)
+- say 10000 good (normal) examples & 20 flawed (anomalous)
+  - training set:  6000 good
+  - cross validation: 2000 good & 10 anomalous
+  - test set: 2000 good & 10 anomalous
+- fit model p(x) on training set
+- on cross validation/test example x, predict y
+- y == 1 if p(x) < ε
+- y == 0 if p(x) >= ε
+- (p(x) = p(x1)*p(x2)...*p(xn))
+
+possible evaluation metrics code
+- true positives, false positives, false negatives, true negatives
+- precision/recall
+- F1- score
+- can also use cross validation set to choose parameter e
+- by decreasing ε, you will flag more anomalies
+
+%calculate tp, fp & fn values
+tp = sum(cvPredictions == 1 & yval == 1);
+fp = sum(cvPredictions == 1 & yval == 0);
+fn = sum(cvPredictions == 0 & yval == 1);
+
+%calculate precision & recall values
+precision_val = tp/(tp+fp);
+recall_val = tp/(tp+fn);
+
+%calculate F1 score
+F1 = (2*precision_val*recall_val)/(precision_val+recall_val);
 
 MULTIVARIATE GAUSSIAN ALGO CODE
+- model p(x) all in one go instead of p(x1), p(x2), p(x3)
+- parameters:  mu and SIGMA (covariance matrix like PCA)
 
 %calculate mean for each feature
 mu = (1/m) .* sum(X);
@@ -198,6 +248,16 @@ sigma2 = (1/m) .* sum((X - mu1') .^2);
 
 X = bsxfun(@minus, X, mu(:)');
 p = (2 * pi) ^ (- k / 2) * det(Sigma2) ^ (-0.5) * exp(-0.5 * sum(bsxfun(@times, X * pinv(Sigma2), X), 2));
+
+DENSITY ESTIMATION vs MULTIVARIATE GAUSSIAN 
+density estimation
+- manually create features to capture anomalies where x1, x2 take unusual combinations of values
+- computationally cheaper
+- ok is m (training set size) is small
+Multivariate Gaussian distribution:
+- automatically captures correlations between features
+- computationally expensive
+- must have m > n else SIGMA is non-invertible (ideally m >= 10n)
 
 COLLABORATIVE FILTERING ALGO CODE
 
