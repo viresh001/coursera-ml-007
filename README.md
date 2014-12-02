@@ -184,3 +184,38 @@ Large data rationale (when is getting larger data sets better?)
   - produces low bias algoritms (Jtrain will be small)
   - very large training set (unlikely to overfit) - produces low variance
   - Jtrain(θ)~=Jtest(θ)
+
+
+MULTIVARIATE GAUSSIAN ALGO CODE
+
+%calculate mean for each feature
+mu = (1/m) .* sum(X);
+
+%calculate variance for each feature
+%work around broadcasting warning
+mu1 = mu' * ones(1,m);
+sigma2 = (1/m) .* sum((X - mu1') .^2);
+
+X = bsxfun(@minus, X, mu(:)');
+p = (2 * pi) ^ (- k / 2) * det(Sigma2) ^ (-0.5) * exp(-0.5 * sum(bsxfun(@times, X * pinv(Sigma2), X), 2));
+
+COLLABORATIVE FILTERING ALGO CODE
+
+%calculate the cost function (J) but only where R ==1
+J = (1/2)*sum((((X*Theta') - Y).^2)(R==1));
+
+X_grad = (((X*Theta') - Y) .* R)*Theta;
+Theta_grad = (((X*Theta') - Y) .* R)'*X;
+
+%calculate regularization for Theta and X
+reg_Theta = (lambda/2)*sum(sum((Theta .^ 2)));
+reg_X = (lambda/2)*sum(sum((X .^ 2)));
+
+J = J + reg_Theta + reg_X;
+
+%calculate regularization for Theta_grad and X_grad
+reg_Theta_grad = lambda*Theta;
+reg_X_grad = lambda*X;
+
+X_grad = X_grad + reg_X_grad;
+Theta_grad = Theta_grad + reg_Theta_grad;
