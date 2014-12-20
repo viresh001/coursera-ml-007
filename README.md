@@ -9,6 +9,18 @@ get array column maximuns/minimuns: [max/min, max/min_index] = max/min(A,[],1);
 
 unroll arrays:  Array3 = [Array1(:) ; Array2(:)]; and use reshape to rebuilt
 
+Supervised Learning (x(i),y(i))
+- Linear Regression, Logistic Regression, Neural Networks, SVMs
+
+Unsupervised Learning (x(i))
+- K-means, PCA, Anomaly dection
+
+Special applications/special topics
+- Recommender systems, large scale machine learning
+
+Advice on building a machine learning system
+- Bias/variance, regularization, evaluation of learning algorithms, learning curves, error analysis, ceiling analysis
+
 ALGORITHMS
 Supervised learning algorithms needs labeled examples (x,y)
 unsupervised learning algorithms need only the input (x)
